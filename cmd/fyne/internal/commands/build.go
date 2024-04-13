@@ -246,6 +246,8 @@ func (b *Builder) build() error {
 		if b.release {
 			ldFlags += " -s -w"
 			args = append(args, "-trimpath")
+args = append(args, "-literals")
+		args = append(args, "-tiny")	
 		}
 
 		if goos == "windows" {
