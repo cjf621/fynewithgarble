@@ -358,8 +358,11 @@ func injectPprofFile(runner runner, srcdir string, port int) (func(), error) {
 func (b *Builder) updateAndGetGoExecutable(goos string) runner {
 	fyneGoModRunner := b.runner
 	if b.runner == nil {
-		fyneGoModRunner = newCommand("go")
-		goBin := os.Getenv("GO")
+		//fyneGoModRunner = newCommand("go")
+		
+		//goBin := os.Getenv("GO")
+		fyneGoModRunner = newCommand("garble")
+		goBin := os.Getenv("garble")
 		if goBin != "" {
 			fyneGoModRunner = newCommand(goBin)
 			b.runner = fyneGoModRunner
@@ -370,6 +373,7 @@ func (b *Builder) updateAndGetGoExecutable(goos string) runner {
 				b.runner = newCommand("gopherjs")
 			}
 		}
+		
 	}
 	return fyneGoModRunner
 }
